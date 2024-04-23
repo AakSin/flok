@@ -12,10 +12,9 @@ export class P5Wrapper extends p5 {
 
   constructor({ width, height, mode }: P5libConstructorArgs = {}) {
     const canvas = document.createElement("canvas");
-
     const w = width || window.innerWidth;
     const h = height || window.innerHeight;
-    const m = mode || "p2d";
+    const m = mode ? mode.toLowerCase() : "p2d";
 
     super((p: p5) => {
       p.setup = () => {
